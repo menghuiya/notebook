@@ -1,0 +1,574 @@
+:root {
+  /**
+  @--primary-color 主色调 例如发送信息的蓝色背景
+  @--inverse-color 反色调或者强色调 与主色调形成鲜明的对比 例如发送按钮的背景色
+  @--shadow-large 大阴影 例如标题栏 底部栏 的阴影
+  @--shadow-medium 小阴影 例如输入框和表情选择弹出层
+  */
+  --primary-color: hsl(550, 100%, 48%);
+  --inverse-color: hsl(210, 90%, 60%);
+  --shadow-large: 0 0px 24px hsl(0, 0%, 0%, 0.2);
+  --shadow-medium: 0 0px 12px hsl(0, 0%, 0%, 0.1);
+}
+* {
+  background: #0000;
+  padding: 0;
+  margin: 0;
+}
+/*滚动条样式*/
+::-webkit-scrollbar {
+  width: 4px;
+  /* background-color: #000; */
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  /* -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); */
+  background: rgba(0, 0, 0, 0.5);
+}
+::-webkit-scrollbar-track {
+  /* -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); */
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+html,
+body {
+  /* width: 100%; */
+  /* height: 100%;
+  overflow: hidden; */
+  position: relative;
+}
+.note-all-box {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.note-main {
+  /* width: 100vw; */
+  height: 100vh;
+  /* background-color: hsl(0, 0%, 100%); */
+  /* border-radius: 8px; */
+  display: grid;
+  grid-template-rows: max-content 1fr;
+}
+pre code {
+  border-radius: 5px;
+  background: #0000;
+}
+header {
+  /* background-color: #303f9f; */
+  background: var(--vscode-scrollbarSlider-background);
+  font-size: 18px;
+  /* font-weight: 600; */
+  padding: 10px 0;
+  text-align: center;
+  /* color: #ffff; */
+  display: grid;
+  grid-template-columns: 70px 1fr 75px;
+  justify-items: center;
+}
+
+.note-msg-box {
+  display: flex;
+  box-sizing: border-box;
+  padding: 5px 10px;
+  align-items: center;
+  /* color: #757575; */
+}
+.note-msg {
+  flex: 1;
+}
+
+.searched-cancel {
+  font-size: 14px;
+  cursor: pointer;
+  /* color: #757575; */
+  margin-right: 3px;
+  display: none;
+}
+.show {
+  display: block;
+}
+
+.search,
+.add {
+  font-size: 16px;
+  cursor: pointer;
+}
+.search:hover,
+.add:hover {
+  color: #c5cae9;
+}
+.add {
+  display: none;
+}
+
+.card {
+  /* background-color: #3f51b5; */
+  background: #616161;
+  /* color: #ffff; */
+  padding: 10px;
+  box-shadow: 1px 1px 15px #000;
+  border-radius: 5px;
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 100%;
+  overflow-y: auto;
+  transition: all 0.5s;
+  z-index: 999;
+}
+.main-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.cancel,
+.confirm {
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #000;
+  /* font-weight: 600; */
+  margin: 10px 0;
+  padding: 8px;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid rgb(219, 218, 218);
+  /* 这里是修改为自己的样式 */
+  /* border: 2px solid #22b470; */
+}
+
+select {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 8px;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid rgb(219, 218, 218);
+  font-size: 16px;
+}
+
+option {
+  padding: 8px;
+}
+
+textarea {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 18px;
+  color: #000;
+  /* font-weight: 600; */
+  outline: none;
+  margin-bottom: 100px;
+  word-wrap: break-word;
+}
+
+.main-box {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 70px 1fr;
+}
+
+.list {
+  /* background-color: #dcdde0; */
+  /* color: #ffff; */
+  padding: 10px;
+  /* height: 100vh; */
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  margin-bottom: 100px;
+}
+
+.empty {
+  height: 100%;
+  width: 100%;
+  /* background-color: #fff; */
+  background: var(--vscode-scrollbarSlider-background);
+  border-radius: 5px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.empty img {
+  width: 100px;
+  height: 100px;
+}
+.empty span {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.main-right {
+  /* background-color: #dcdde0; */
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  margin-bottom: 100px;
+}
+.main-type-temp {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow-y: auto;
+}
+.main-type-list {
+  padding-top: 10px;
+  /* background-color: #fff; */
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+  /* position: relative; */
+}
+.main-type-list img {
+  width: 40px;
+  height: 40px;
+}
+.type-box {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  border-bottom: 1px solid #bdbdbd;
+  cursor: pointer;
+}
+
+.type-box .type-box-msg {
+  /* background: #fff; */
+  background-color: var(--vscode-terminal-ansiBrightBlack);
+  /* color: #000; */
+  width: 70px;
+  height: 70px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+}
+.type-action {
+  width: 0;
+  height: 70px;
+  position: absolute;
+  left: 70px;
+  top: 0;
+  display: flex;
+  /* border-radius: 5px; */
+  color: #ffff;
+  transition: all 0.2s;
+  text-align: center;
+  line-height: 80px;
+  overflow: hidden;
+  z-index: 998;
+}
+.type-action-import {
+  background-color: #447c2e;
+  max-width: 60px;
+  flex: 1;
+}
+.type-action-con {
+  background-color: #673ab7;
+  max-width: 60px;
+  flex: 1;
+}
+.type-action-edit {
+  /* background-color: #388e3c; */
+  background-color: var(--vscode-editorGutter-addedBackground);
+  max-width: 60px;
+  flex: 1;
+}
+.type-action-del {
+  flex: 1;
+  /* background: red; */
+  background-color: var(--vscode-editorGutter-deletedBackground);
+  max-width: 60px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.type-action-add {
+  flex: 1;
+  display: flex;
+  background: #3f51b5;
+  box-shadow: var(--shadow-large);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-left: 1px solid #fff;
+  align-items: center;
+}
+.type-action-add .note-add-typename {
+  padding: 0 5px;
+  flex: 1;
+  margin-left: 5px;
+  height: 30px;
+}
+.type-action-add .note-add-comfim {
+  width: 40px;
+  margin: 0 5px;
+}
+.note-add-comfim:hover {
+  color: #388e3c;
+}
+
+.type-box:hover > .type-box-msg {
+  background-color: #afafaf !important;
+  color: #fff;
+}
+
+.note-card {
+  /* width: 100%; */
+  height: 80px;
+  margin: 5px auto;
+  /* background-color: #fff; */
+  background: var(--vscode-scrollbarSlider-background);
+  border-radius: 5px;
+  /* color: #000; */
+  /* padding: 5px; */
+  /* box-sizing: border-box; */
+  /* display: flex; */
+  /* align-items: center; */
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.note-action {
+  width: 0;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  /* border-radius: 5px; */
+  overflow: hidden;
+  color: #ffff;
+  transition: all 0.2s;
+  text-align: center;
+  line-height: 80px;
+}
+.note-action-con {
+  background-color: #673ab7;
+  flex: 1;
+}
+.note-action-edit {
+  background-color: var(--vscode-editorGutter-addedBackground);
+  flex: 1;
+}
+.note-action-del {
+  background-color: var(--vscode-editorGutter-deletedBackground);
+  flex: 1;
+}
+
+.note-card-data {
+  padding: 5px;
+  box-sizing: border-box;
+  align-items: center;
+  display: flex;
+}
+
+.type {
+  width: 64px;
+  height: 58px;
+}
+
+.text-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  /* justify-content: space-around; */
+}
+
+.card-title {
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.card-des {
+  font-size: 14px;
+  /* color: #747474; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+.search-box {
+  width: 100%;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  background: #616161;
+  display: flex;
+  align-items: center;
+  /* box-shadow: 5px 6px 0px #000; */
+  z-index: 9999;
+  position: absolute;
+  top: -70px;
+  transition: all 0.5s;
+}
+
+.keywords {
+  flex: 1;
+}
+
+.search-btn {
+  width: 60px;
+  margin-left: 5px;
+  height: 36px;
+  background-color: #303f9f;
+  text-align: center;
+  line-height: 36px;
+  border-radius: 5px;
+  color: #ffff;
+  cursor: pointer;
+}
+
+.search-comfirm {
+  background-color: #388e3c;
+}
+.search-cancel {
+  background-color: #757575;
+}
+
+.red {
+  color: red;
+  font-weight: 600;
+}
+.spacilBorder {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.showTps {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 80px;
+  background-color: #0f0f0fbe;
+  color: #ffff;
+  border-radius: 10px;
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 2022;
+}
+
+.showTps img {
+  width: 32px;
+}
+.showTps span {
+  font-size: 14px;
+  height: 20px;
+  overflow: hidden;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.5;
+  z-index: 2020;
+  display: none;
+}
+
+.comfim-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 400px;
+  min-width: 200px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 2021;
+}
+.comfim-box .comfim-title {
+  font-size: 18px;
+  color: #a1a6b3;
+  font-weight: 500;
+}
+.comfim-box .comfim-msg {
+  display: flex;
+  padding: 10px 0;
+}
+
+.comfim-msg-img {
+  width: 32px;
+  height: 32px;
+}
+.comfim-msg-text {
+  flex: 1;
+  margin-left: 8px;
+  font-size: 15px;
+  color: #000;
+}
+
+.comfim-action {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.comfim-action button {
+  border: 1px solid #dcdfe6;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 0 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.comfim-sure {
+  background-color: var(--vscode-editorGutter-addedBackground);
+  color: #ffff;
+}
+
+/* 浅色主题 */
+.body.vscode-light {
+  background: white;
+  color: black;
+}
+/* 深色主题 */
+body.vscode-dark {
+  background: #252526;
+  color: white;
+}
+/* 高对比度主题 */
+body.vscode-high-contrast {
+  background: white;
+  color: red;
+}

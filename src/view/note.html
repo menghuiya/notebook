@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的代码笔记</title>
+    <link rel="stylesheet" href="../../lib/css/style.css" />
+    <link rel="stylesheet" href="../../lib/css/default.min.css" />
+  </head>
+  <body class="note-body">
+    <div class="note-all-box">
+      <div class="search-box">
+        <input type="search" placeholder="请输入关键词搜索" class="keywords" />
+        <div class="search-btn search-comfirm">搜索</div>
+        <div class="search-btn search-cancel">取消</div>
+      </div>
+      <div class="note-main">
+        <div>
+          <header>
+            <div class="search">搜索</div>
+            <div class="center">我的笔记</div>
+            <div class="add">新增</div>
+          </header>
+          <div class="note-msg-box">
+            <div class="note-msg">当前列表:全部</div>
+            <div class="searched-cancel">重置</div>
+          </div>
+        </div>
+        <div class="main-box">
+          <div class="main-right">
+            <div class="main-type-temp">
+              <div class="main-type-list"></div>
+            </div>
+          </div>
+          <main class="list"></main>
+        </div>
+      </div>
+      <main class="card">
+        <div class="main-head">
+          <div class="cancel">取消</div>
+          <div class="edit-title">正在编辑</div>
+          <div class="confirm">确认</div>
+        </div>
+        <div class="file">
+          <div>当前文件: <span class="fileName">xxxx.js</span></div>
+          <div>文件路径: <span class="filePath">D:ddd/dds/d//xxx.js</span></div>
+        </div>
+        <pre class="note-code"><code class="language mh-code hljs"></code></pre>
+        <input type="text" class="card-add-title" placeholder="请输入笔记标题" />
+        <select name="note-type" id="note-types">
+          <option value="" disabled selected>请选择你要提交的笔记分类</option>
+        </select>
+        <textarea name="" id="" rows="10" class="card-add-des" placeholder="详细描述"></textarea>
+      </main>
+    </div>
+    <div class="modal"></div>
+  </body>
+  <script src="../../lib/js/highlight.min.js"></script>
+  <script src="../../lib/js/main.js"></script>
+</html>

@@ -1,0 +1,88 @@
+{
+  "name": "jovi-notebookforcode",
+  "displayName": "jovi-notebookforcode",
+  "description": "一款代码笔记,保存重要内容",
+  "keywords": [
+    "note",
+    "notebook",
+    "jovi"
+  ],
+  "version": "1.0.5",
+  "publisher": "jovi",
+  "engines": {
+    "vscode": "^1.55.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "images/icon.png",
+  "activationEvents": [
+    "onCommand:jovi-notebookforcode.addnote",
+    "onCommand:jovi-notebookforcode.opennote"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "笔记本数据基本配置！",
+      "properties": {
+        "jovi-notebookforcode.noteName": {
+          "type": "string",
+          "default": "梦回笔记本",
+          "description": "笔记本名称"
+        },
+        "jovi-notebookforcode.initNote": {
+          "type": "boolean",
+          "default": true,
+          "description": "初次加载时是否初始化本地数据，请勿随意设置，此设置将会重置笔记数据"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "jovi-notebookforcode.opennote",
+        "title": "打开笔记本",
+        "icon": {
+          "light": "./src/assets/notebook.svg",
+          "dark": "./src/assets/notebook.svg"
+        }
+      },
+      {
+        "command": "jovi-notebookforcode.addnote",
+        "title": "新增代码笔记"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorHasSelection&&editorFocus",
+          "command": "jovi-notebookforcode.addnote",
+          "group": "navigation@6"
+        }
+      ],
+      "editor/title": [
+        {
+          "when": "editorFocus",
+          "command": "jovi-notebookforcode.opennote",
+          "group": "navigation@6"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.55.0",
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.0.4",
+    "@types/node": "^12.11.7",
+    "eslint": "^7.19.0",
+    "glob": "^7.1.6",
+    "mocha": "^8.2.1",
+    "typescript": "^4.1.3",
+    "vscode-test": "^1.5.0"
+  }
+}
