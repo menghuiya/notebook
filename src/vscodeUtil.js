@@ -77,7 +77,7 @@ class FileAction {
    * @param {*} templatePath 相对于插件根目录的html文件相对路径
    */
   mhReadFile(context, templatePath, callback) {
-    fs.readFile(templatePath, { flag: 'r', encoding: 'UTF-8' }, (err, data) => {
+    fs.readFile(templatePath, 'UTF-8', (err, data) => {
       if (err) {
         callback(err, null);
       } else {

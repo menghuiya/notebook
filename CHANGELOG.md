@@ -8,6 +8,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Initial release
 
+- 1.1.1 重构部分代码,修复未知 bug
 - 1.0.5 修改 icon 其他部分 bug
 - 1.0.4 新增直接打开笔记本命令,无需选中代码
 - 1.0.3 修改多个窗口为单个窗口,新增仅有单个窗口
